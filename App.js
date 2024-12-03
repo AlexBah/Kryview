@@ -1,66 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert, Image, TouchableWithoutFeedback } from 'react-native';
+import StatusBar from 'expo-status-bar';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import AppNavigator from './src/navigations/Navigator';
+import * as Font from 'expo-font';
+import {AppLoading} from 'expo';
 
-export default function App() {
-  const HandleTextPress = () => console.log('text pressed');
-  const HandleButtonPress = () => Alert.alert('Название','Сообщение',[
-    {text: 'Да', onPress: () => console.log('Yes')},
-    {text: 'Отмена', onPress: () => console.log('No')}
-  ]);
-  const HandleButtonPress2 = () => Alert.prompt('Название','Сообщение', text => console.log(text));
+export default class App extends React.Component {
+  state = {
+    isFontLoaded:false
+  }
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headertext}> KryView </Text>
-      </View>
-      <View style={styles.schedule}>
-        
-      </View>
-      <View style={styles.krypto}>
-        <Text style={styles.headertext}>
-          {'https://www.binance.com/ru/price/bitcoin//html/body/div[3]/section/div/div[2]/div[4]/div[1]/div[1]'} 
-        </Text>
-      </View>
-    </View>
-  );
+  async componentDidMount() {
+    await Font.loadAsync({
+      'SemiBold' : require('./src/fonts/Montserrat-SemiBold.ttf'),
+      'Medium' : require('./src/fonts/Montserrat-Medium.ttf'),
+      'Regular' : require('./src/fonts/Montserrat-Regular.ttf'),
+    });
+    this.setState({isFontLoaded:true})
+  }
+
+  render(){
+    return (
+      (this.state.isFontLoaded === true) ? (<AppNavigator/>):(AppLoading)
+    );
+  }
+
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-  },
-  header: {
-    flex: 1,
-    backgroundColor: '#222',
-    borderWidth: 3,
-    borderRadius: 5,
-    margin: 2,
-    borderColor: '#242',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headertext: {
-    fontSize: 30,
-    color: '#eee',
-  },
-  schedule: {
-    flex: 1,
-    backgroundColor: '#222',
-    borderWidth: 3,
-    borderRadius: 5,
-    margin: 2,
-    borderColor: '#242',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  krypto: {
-    flex: 4,
-    backgroundColor: '#222',
-    borderWidth: 3,
-    borderRadius: 5,
-    margin: 2,
-    borderColor: '#242',
-  },
-});
