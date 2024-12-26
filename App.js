@@ -1,13 +1,13 @@
-import StatusBar from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 import AppNavigator from './src/navigations/Navigator';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
 
+
 export default class App extends React.Component {
   state = {
-    isFontLoaded:false
+    isFontLoaded:false,
+    screenName:'Register',
   }
 
   async componentDidMount() {
@@ -21,7 +21,9 @@ export default class App extends React.Component {
 
   render(){
     return (
-      (this.state.isFontLoaded === true) ? (<AppNavigator/>):(AppLoading)
+      (this.state.isFontLoaded === true) ? 
+      (<AppNavigator screenname={this.state.screenName}/>) : 
+      (AppLoading)
     );
   }
 
