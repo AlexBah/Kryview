@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import PhoneInput from "../components/PhoneInput";
 import SendSmsButton from "../components/SendSmsButton";
 import SmsInput from "../components/SmsInput";
