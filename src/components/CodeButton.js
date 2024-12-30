@@ -5,16 +5,12 @@ import styles from '../styles/Styles';
 const CodeButton = ({ value, onPress }) => {
 
     const handlePress = (value) => {
-        switch (value) {
-            case '':
-                break;
-            default:
-                onPress(value);
-            }
+        onPress(value);
     };
 
     return (
         <TouchableOpacity 
+            disabled={ value == '' ? true : false}
             style={[styles.gridButton, value == '' ? styles.gridButtonEmpty : {}]}
             onPress={() => handlePress(value)}
         >

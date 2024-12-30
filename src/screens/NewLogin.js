@@ -1,5 +1,5 @@
-import React, {useState, useEffect, use} from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import React, {useState, useEffect } from "react";
+import { Text, View } from "react-native";
 import styles from '../styles/Styles';
 import CodeIndicator from "../components/CodeIndicator";
 import ButtonGrid from "../components/ButtonGrid";

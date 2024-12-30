@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, TextInput } from 'react-native';
 import styles from '../styles/Styles';
 
-
 const SmsInput = ({ enable, onChange }) => {
     const [sms, setSms] = useState('');
 

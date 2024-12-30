@@ -1,9 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import styles from '../styles/Styles';
-import PhoneInput from "../components/PhoneInput";
-import CodeIndicator from "../components/CodeIndicator";
-import ButtonGrid from "../components/ButtonGrid";
 
 const MainScreen = ({ navigation }) => {
 
