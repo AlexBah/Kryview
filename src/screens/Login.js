@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import styles from '../styles/Styles';
 import CodeIndicator from "../components/CodeIndicator";
@@ -18,16 +18,18 @@ const Login = ({ navigation }) => {
             }
     };
 
+    useEffect(() => {
+        if (code.length === maxCodeLength) {
+            // to do: проверка кода
+            navigation.navigate('MainScreen')
+        };
+    }, [code]); 
 
     return (
         <View style={styles.background}>
 
             <CodeIndicator codeLength={code.length} maxCodeLength={maxCodeLength} />
             <ButtonGrid onChange={handleCodeChange} />
-
-            <TouchableOpacity  onPress={() => navigation.navigate('MainScreen')}>
-                <Text style={styles.h2}>MainScreen</Text>
-            </TouchableOpacity>
 
         </View>
     );

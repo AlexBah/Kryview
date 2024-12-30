@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
+import { View, TextInput } from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import styles from '../styles/Styles';
 
@@ -37,7 +37,7 @@ const PhoneInput = ({ onChange }) => {
         <View style={styles.inputBorder}>
             <Icon name="phone" size={23} style={styles.inputIcon} />
             <TextInput
-                style={styles.h2}
+                style={styles.inputText}
                 value={phoneNumber}
                 onChangeText={handleChange}
                 keyboardType="phone-pad"

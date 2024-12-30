@@ -10,7 +10,7 @@ const MainScreen = ({ navigation }) => {
     return (
         <View style={styles.background}>
 
-            <Text style={styles.h2}>MainScreen</Text>
+            <Text style={styles.h2}>MainScreen{"\n\n"}</Text>
 
             <TouchableOpacity  onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.h2}>Login</Text>
@@ -20,9 +20,6 @@ const MainScreen = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity  onPress={() => navigation.navigate('NewLogin')}>
                 <Text style={styles.h2}>NewLogin</Text>
-            </TouchableOpacity>
-            <TouchableOpacity  onPress={() => navigation.navigate('MainScreen')}>
-                <Text style={styles.h2}>MainScreen</Text>
             </TouchableOpacity>
 
         </View>
